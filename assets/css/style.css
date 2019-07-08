@@ -1,0 +1,161 @@
+/* Global Reset */
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+/* Setting the background image and global font */
+html {
+    background-image: url(../images/potterwallpaper.png);
+    background-size: cover;
+    height: 100%;
+    overflow: hidden;
+}
+
+body {
+    font-family: 'Harry P';
+    height: 100%;
+}
+
+/* Parent Container */
+.container-body {
+    height: 100%;
+    display: flex;
+    flex-direction: column;
+}
+
+/* Child Container for Content */
+.container {
+    width: 90%;
+    height: 700px;
+    margin: auto;
+    background: #fff;
+    opacity: 0.9;
+    border-radius: 5px;
+}
+
+/* Header */
+#header {
+    width: 100%;
+    height: 90px;
+    display: flex;
+    margin-bottom: 20px;
+    position: relative;
+}
+
+#header h1 {
+    margin: auto;
+    padding: 10px 30px;
+    background-color: #eeba30;
+    border-radius: 5px;
+    border-bottom: 2px solid #000;
+    -webkit-box-shadow: 0px 5px 15px 0px #000; 
+    box-shadow: 0px 5px 15px 0px #000;
+    font-size: 5rem;
+    position: absolute;
+    z-index: 1;
+    top: -20px;
+    right: 180px;
+}
+
+/* Instructions */
+#container-instructions {
+    display: flex;
+    height: 200px;
+}
+
+#instructions {
+    margin: auto;
+    font-size: 35px;
+    line-height: 1.5;
+}
+
+#instructions span {
+    color: #ae0001;
+}
+
+/* Start Button */
+#start {
+    height: 70px;
+    margin: 50px 0 20px 0;
+    display: flex;
+}
+
+#start-button {
+    margin: auto;
+    padding: 10px 50px;
+    font-family: 'Harry P';
+    font-size: 45px;
+    color: #fff !important;
+    border: 4px solid #000 !important;
+    background-color: #ae0001;
+    border-radius: 6px;
+    outline: none;
+}
+
+#start-button:hover {
+    color: #000 !important;
+    background: #eeba30;
+    border-color: #eeba30 !important;
+    transition: all 0.6s ease 0s;
+    -webkit-box-shadow: 0px 5px 15px 0px #000; 
+    box-shadow: 0px 5px 15px 0px #000;
+}
+
+/* Timer and Questions Container */
+#seconds-timer {
+    display: flex;
+    height: 40px;
+    margin-bottom: 50px;
+    display: none;
+}
+
+#seconds-timer h3 {
+    margin: auto;
+    padding: 5px;
+    font-size: 35px;
+}
+
+#container-trivia {
+    display: flex;
+    display: none;
+}
+
+#trivia-questions {
+    margin: auto;
+    border-radius: 5px;
+    width: 80%;
+    height: 400px;
+}
+
+/* End of Game Display  */
+#container-answers {
+    display: flex;
+    height: 400px;
+    display: none;
+}
+
+#display-answers {
+    margin: auto;
+    padding: 10px;
+    width: 300px;
+}
+
+#display-answers h3 {
+    margin-bottom: 10px;
+    font-size: 40px;
+}
+
+#display-answers .finished-text {
+    text-align: center;
+    font-size: 70px;
+    margin-bottom: 30px;
+}
+
+
+
+
+
+
+
