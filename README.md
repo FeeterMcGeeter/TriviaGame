@@ -7,4 +7,5 @@ You have 20 seconds to answer 10 questions.  The game ends when time runs out or
 
 
 Here's the link to the game
+<br>
 https://feetermcgeeter.github.io/TriviaGame/.
