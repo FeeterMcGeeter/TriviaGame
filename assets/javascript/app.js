@@ -60,7 +60,7 @@ var currentQuestion;
 var newQuestion;
 var answerOptionButton;
 var intervalId;
-var timer = 20;
+var timer = 45;
 var correct = 0;
 var incorrect = 0;
 var questionCount = 0;
@@ -205,7 +205,7 @@ $(document).ready(function() {
 
             correct = 0;
             incorrect = 0;
-            timer = 20;
+            timer = 45;
 
             timerRun();
             generateQuestions();
