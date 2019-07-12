@@ -6,24 +6,29 @@
         <meta name="viewport" content="width=device-width, initial-scale=1">
         <meta http-equiv="X-UA-Compatible" content="ie=edge">
         <!-- <link href="assets/css/reset.css" rel="stylesheet"> -->
+        <link href="https://fonts.googleapis.com/css?family=Raleway:400,700&display=swap" rel="stylesheet">
         <link href="assets/css/style.css" rel="stylesheet">
     </head>
     <body>
         <div class="container-body">
+
+            <audio id="opening-audio" src="assets/audio/opening.mp3" preload="none"></audio>
+            <audio id="game-audio" src="assets/audio/gameAudio.mp3" preload="none"></audio>
+
             <div class="container">
                 <div id="header">
                     <h1>Harry Potter Trivia!</h1>
                 </div>
 
                 <div id="seconds-timer">
-                    <h3>Time Remaining: <span id="timer">45</span></h3>
+                    <h3>Time Remaining: <span id="timer">20</span></h3>
                 </div>
 
                 <div id="container-instructions">
                     <div id="instructions">
-                        <p>You have 45 seconds to answer as many questions as possible.</p>
+                        <p>You have 20 seconds to answer 10 questions.</p>
                         <p>The game ends when time runs out or you answer all of the questions.</p>
-                        <p>Press the <span>"Start Game" </span>button when ready.</p>
+                        <p>Press the <span>"Start Game" </span>button when ready!</p>
                     </div>
                 </div>
 
@@ -33,14 +38,16 @@
 
                 <div id="container-trivia">
                     <div id="trivia-questions">
-
+                        <div id="random-questions" class="trivia"></div>
+                        <div id="trivia-answers" class="trivia"></div>
                     </div>
                 </div>
+                
 
                 <div id="container-answers">
                     <div id="display-answers">
                         <div>
-                            <h3 class="finished-text">Finished!</h3>
+                            <h3 class="finished-text"></h3>
                         </div>
                         <div>
                             <h3>Answers Correct: <span id="correct-answers"></span></h3>
@@ -48,8 +55,9 @@
                         <div>
                             <h3>Answers Incorrect: <span id="wrong-answers"></span></h3>
                         </div>
-                        <div>
-                            <h3>Unanswered: <span id="unanswered"></span></h3>
+                        
+                        <div id="restart">
+                            <button id="restart-game">Restart Game</button>
                         </div>
                     </div>
                 </div>
