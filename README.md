@@ -2,7 +2,7 @@
 
 A trivia game for Harry Potter fans!  
 
-# Instructions
+## Instructions
 You have 20 seconds to answer 10 questions.  The game ends when time runs out or you answer all of the questions.
 
 
