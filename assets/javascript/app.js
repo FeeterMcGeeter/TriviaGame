@@ -212,3 +212,5 @@ $(document).ready(function() {
         })
     };
 });
+
+// HAD TROUBLE GETTING THE GAME TO RELOAD PROPERLY WHEN THE USER CLICKED ON THE RESTART GAME BUTTON 
