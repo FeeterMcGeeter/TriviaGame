@@ -69,21 +69,35 @@ var gameEnd = false;
 // =============== READY FUNCTION ON PAGE LOAD ===============
 $(document).ready(function() {
 
-    $("#seconds-timer").hide();
-    $("#container-trivia").hide();
-    $("#container-answers").hide();
+    function restart() {
+        $("#seconds-timer").hide();
+        $("#container-trivia").hide();
+        $("#container-answers").hide();
+        $("#start").show();
+        $("#container-instructions").show();
+        correct = 0;
+        incorrect = 0;
+        timer = 40;
+        questionCount = 0;
 
-    // CLICK EVENT FOR THE START BUTTON
-    $("#start-button").click(function() {
+    }
 
+    restart();
+
+    function startGame() {
         $("#start").hide();
         $("#container-instructions").hide();
+        $("#container-answers").hide();
         $("#seconds-timer").show();
         $("#container-trivia").show();
 
+
         timerRun();
         generateQuestions();
-    });
+    };
+
+    // CLICK EVENT FOR THE START BUTTON
+    $("#start-button").click(startGame) 
 
     // FUNCTION FOR THE TIMER COUNT DOWN
     function timerRun() {
@@ -106,13 +120,14 @@ $(document).ready(function() {
     function generateQuestions() {
         $(".trivia").empty();
         questionCount++;
+        var triviaCopy = [...triviaQuestions];
 
         if (questionCount < 11) {
             // Generates the questions and inserts them into the HTML
-            triviaIndex = Math.floor(Math.random() * triviaQuestions.length);
-            currentQuestion = triviaQuestions[triviaIndex];
+            triviaIndex = Math.floor(Math.random() * triviaCopy.length);
+            currentQuestion = triviaCopy[triviaIndex];
             $("#random-questions").text(currentQuestion.question);
-
+            
             // Generates the answer options and inserts them into the HTML
             for (var i = 0; i < currentQuestion.options.length; i++) {
                 answerOptionButton = $("<input/>").attr({type: "button", class: "answerOptionsButton", id: currentQuestion.options[i].toString(), value: currentQuestion.options[i].toString()});
@@ -122,10 +137,12 @@ $(document).ready(function() {
 
             // Gets the correct answer for each question
             correctGuess = currentQuestion.answer;
-            triviaQuestions.splice(triviaIndex, 1);
+
+            console.log(triviaCopy);
+            triviaCopy.splice(triviaIndex, 1);
 
             // Click event for the answer options
-            $(".answerOptionsButton").one("click", function() {
+            $(".answerOptionsButton").on("click", function() {
                 userGuess = $(this)[0].id;
 
                 // If the user guesses correctly then...
@@ -193,24 +210,12 @@ $(document).ready(function() {
         } 
     };
 
-    restart();
-
     // FUNCTION TO RESTART THE GAME ON BUTTON CLICK
-    function restart() {
-        $("#restart-game").click("click", function() {
-            $("#container-instructions").hide();
-            $("#container-answers").hide();
-            $("#seconds-timer").show();
-            $("#container-trivia").show();
-
-            correct = 0;
-            incorrect = 0;
-            timer = 40;
-
-            timerRun();
-            generateQuestions();
-        })
-    };
+    $("#restart-game").click("click", function() {        
+        restart();
+        // timerRun();
+        // generateQuestions();
+    })
 });
 
 // HAD TROUBLE GETTING THE GAME TO RELOAD PROPERLY WHEN THE USER CLICKED ON THE RESTART GAME BUTTON 
