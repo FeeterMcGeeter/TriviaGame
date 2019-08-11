@@ -65,6 +65,7 @@ var correct = 0;
 var incorrect = 0;
 var questionCount = 0;
 var gameEnd = false;
+var triviaCopy = [...triviaQuestions];
 
 // =============== READY FUNCTION ON PAGE LOAD ===============
 $(document).ready(function() {
@@ -79,7 +80,6 @@ $(document).ready(function() {
         incorrect = 0;
         timer = 40;
         questionCount = 0;
-
     }
 
     restart();
@@ -115,17 +115,17 @@ $(document).ready(function() {
     function transition() {
         setTimeout(nextQuestion, 2000);
     };
+    
 
     // FUNCTION TO GENERATE THE QUESTIONS AND ANSWER OPTIONS
     function generateQuestions() {
         $(".trivia").empty();
         questionCount++;
-        var triviaCopy = [...triviaQuestions];
 
         if (questionCount < 11) {
             // Generates the questions and inserts them into the HTML
-            triviaIndex = Math.floor(Math.random() * triviaCopy.length);
-            currentQuestion = triviaCopy[triviaIndex];
+            triviaIndex = Math.floor(Math.random() * triviaQuestions.length);
+            currentQuestion = triviaQuestions[triviaIndex];
             $("#random-questions").text(currentQuestion.question);
             
             // Generates the answer options and inserts them into the HTML
@@ -138,8 +138,8 @@ $(document).ready(function() {
             // Gets the correct answer for each question
             correctGuess = currentQuestion.answer;
 
-            console.log(triviaCopy);
-            triviaCopy.splice(triviaIndex, 1);
+            triviaQuestions.splice(triviaIndex, 1);
+            console.log(triviaQuestions);
 
             // Click event for the answer options
             $(".answerOptionsButton").on("click", function() {
@@ -198,10 +198,13 @@ $(document).ready(function() {
         $("#correct-answers").text(correct);
         $("#wrong-answers").text(incorrect);
 
+        triviaQuestions = triviaCopy;
+        console.log(triviaQuestions);
+
         // Gives a different display based on the number of correct answers the user got
         if (correct === 10) {
             $(".finished-text").text("AMAZING!! You got 100%!")
-        } else if (correct >= 6) {
+        } else if (correct <=9 && correct >= 6) {
             $(".finished-text").text("Good Job!! You know you're stuff!");
         } else if (correct === 5) {
             $(".finished-text").text("Average! You should probably watch the movies again!");
