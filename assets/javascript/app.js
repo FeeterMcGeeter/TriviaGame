@@ -68,7 +68,7 @@ var gameEnd = false;
 var triviaCopy = [...triviaQuestions];
 
 // =============== READY FUNCTION ON PAGE LOAD ===============
-$(document).ready(function() {
+$(document).ready(function () {
 
     function restart() {
         $("#seconds-timer").hide();
@@ -97,11 +97,11 @@ $(document).ready(function() {
     };
 
     // CLICK EVENT FOR THE START BUTTON
-    $("#start-button").click(startGame) 
+    $("#start-button").click(startGame)
 
     // FUNCTION FOR THE TIMER COUNT DOWN
     function timerRun() {
-        intervalId = setInterval(function() {
+        intervalId = setInterval(function () {
             $("#timer").text(timer);
             timer--;
             if (timer === -1) {
@@ -115,7 +115,7 @@ $(document).ready(function() {
     function transition() {
         setTimeout(nextQuestion, 2000);
     };
-    
+
 
     // FUNCTION TO GENERATE THE QUESTIONS AND ANSWER OPTIONS
     function generateQuestions() {
@@ -127,10 +127,10 @@ $(document).ready(function() {
             triviaIndex = Math.floor(Math.random() * triviaQuestions.length);
             currentQuestion = triviaQuestions[triviaIndex];
             $("#random-questions").text(currentQuestion.question);
-            
+
             // Generates the answer options and inserts them into the HTML
             for (var i = 0; i < currentQuestion.options.length; i++) {
-                answerOptionButton = $("<input/>").attr({type: "button", class: "answerOptionsButton", id: currentQuestion.options[i].toString(), value: currentQuestion.options[i].toString()});
+                answerOptionButton = $("<input/>").attr({ type: "button", class: "answerOptionsButton", id: currentQuestion.options[i].toString(), value: currentQuestion.options[i].toString() });
 
                 $("#trivia-answers").append(answerOptionButton).show();
             }
@@ -142,7 +142,7 @@ $(document).ready(function() {
             console.log(triviaQuestions);
 
             // Click event for the answer options
-            $(".answerOptionsButton").on("click", function() {
+            $(".answerOptionsButton").on("click", function () {
                 userGuess = $(this)[0].id;
 
                 // If the user guesses correctly then...
@@ -157,7 +157,7 @@ $(document).ready(function() {
                     $("#random-questions").text("Correct!!");
                     clearInterval(intervalId);
                     transition();
-                } 
+                }
                 // If the user guesses incorrectly then... 
                 else if (userGuess !== correctGuess) {
                     incorrect++;
@@ -170,9 +170,9 @@ $(document).ready(function() {
                     $("#random-questions").text("Wrong!  The correct answer is .. " + correctGuess + "!");
                     clearInterval(intervalId);
                     transition();
-                } 
+                }
             });
-        } 
+        }
         // If all questions are answered or time runs out then gameComplete runs
         else {
             gameEnd = true;
@@ -204,21 +204,19 @@ $(document).ready(function() {
         // Gives a different display based on the number of correct answers the user got
         if (correct === 10) {
             $(".finished-text").text("AMAZING!! You got 100%!")
-        } else if (correct <=9 && correct >= 6) {
+        } else if (correct <= 9 && correct >= 6) {
             $(".finished-text").text("Good Job!! You know you're stuff!");
         } else if (correct === 5) {
             $(".finished-text").text("Average! You should probably watch the movies again!");
         } else if (correct <= 4) {
             $(".finished-text").text("That's bad! You're definitely a muggle!");
-        } 
+        }
     };
 
     // FUNCTION TO RESTART THE GAME ON BUTTON CLICK
-    $("#restart-game").click("click", function() {        
+    $("#restart-game").click("click", function () {
         restart();
         // timerRun();
         // generateQuestions();
     })
 });
-
-// HAD TROUBLE GETTING THE GAME TO RELOAD PROPERLY WHEN THE USER CLICKED ON THE RESTART GAME BUTTON 

@@ -1,69 +1,72 @@
 <!DOCTYPE html>
 <html lang="en">
-    <head>
-        <title>Harry Potter Trivia Game</title>
-        <meta charset="UTF-8">
-        <meta name="viewport" content="width=device-width, initial-scale=1">
-        <meta http-equiv="X-UA-Compatible" content="ie=edge">
-        <!-- <link href="assets/css/reset.css" rel="stylesheet"> -->
-        <link href="https://fonts.googleapis.com/css?family=Raleway:400,700&display=swap" rel="stylesheet">
-        <link href="assets/css/style.css" rel="stylesheet">
-    </head>
-    <body>
-        <iframe src="assets/audio/harrypotter.mp3" allow="autoplay" style="display:none" id="iframeAudio"></iframe>
 
-        <div class="container-body">
+<head>
+    <title>Harry Potter Trivia Game</title>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <!-- <link href="assets/css/reset.css" rel="stylesheet"> -->
+    <link href="https://fonts.googleapis.com/css?family=Raleway:400,700&display=swap" rel="stylesheet">
+    <link href="assets/css/style.css" rel="stylesheet">
+</head>
 
-            <div class="container">
-                <div id="header">
-                    <h1>Harry Potter Trivia!</h1>
+<body>
+    <iframe src="assets/audio/harrypotter.mp3" allow="autoplay" style="display:none" id="iframeAudio"></iframe>
+
+    <div class="container-body">
+
+        <div class="container">
+            <div id="header">
+                <h1>Harry Potter Trivia!</h1>
+            </div>
+
+            <div id="seconds-timer">
+                <h3>Time Remaining: <span id="timer">40</span></h3>
+            </div>
+
+            <div id="container-instructions">
+                <div id="instructions">
+                    <p>You have 40 seconds to answer 10 questions.</p>
+                    <p>The game ends when time runs out or you answer all of the questions.</p>
+                    <p>Press the <span>"Start Game" </span>button when ready!</p>
                 </div>
+            </div>
 
-                <div id="seconds-timer">
-                    <h3>Time Remaining: <span id="timer">40</span></h3>
+            <div id="start">
+                <button id="start-button">Start Game</button>
+            </div>
+
+            <div id="container-trivia">
+                <div id="trivia-questions">
+                    <div id="random-questions" class="trivia"></div>
+                    <div id="trivia-answers" class="trivia"></div>
                 </div>
+            </div>
 
-                <div id="container-instructions">
-                    <div id="instructions">
-                        <p>You have 40 seconds to answer 10 questions.</p>
-                        <p>The game ends when time runs out or you answer all of the questions.</p>
-                        <p>Press the <span>"Start Game" </span>button when ready!</p>
+
+            <div id="container-answers">
+                <div id="display-answers">
+                    <div>
+                        <h3 class="finished-text"></h3>
                     </div>
-                </div>
-
-                <div id="start">
-                    <button id="start-button">Start Game</button>
-                </div>
-
-                <div id="container-trivia">
-                    <div id="trivia-questions">
-                        <div id="random-questions" class="trivia"></div>
-                        <div id="trivia-answers" class="trivia"></div>
+                    <div>
+                        <h3>Answers Correct: <span id="correct-answers"></span></h3>
                     </div>
-                </div>
-                
+                    <div>
+                        <h3>Answers Incorrect: <span id="wrong-answers"></span></h3>
+                    </div>
 
-                <div id="container-answers">
-                    <div id="display-answers">
-                        <div>
-                            <h3 class="finished-text"></h3>
-                        </div>
-                        <div>
-                            <h3>Answers Correct: <span id="correct-answers"></span></h3>
-                        </div>
-                        <div>
-                            <h3>Answers Incorrect: <span id="wrong-answers"></span></h3>
-                        </div>
-                        
-                        <div id="restart">
-                            <button id="restart-game">Restart Game</button>
-                        </div>
+                    <div id="restart">
+                        <button id="restart-game">Restart Game</button>
                     </div>
                 </div>
             </div>
         </div>
-        
-        <script src="https://code.jquery.com/jquery-3.3.1.slim.min.js"></script>
-        <script src="assets/javascript/app.js"></script>
-    </body>
+    </div>
+
+    <script src="https://code.jquery.com/jquery-3.3.1.slim.min.js"></script>
+    <script src="assets/javascript/app.js"></script>
+</body>
+
 </html>
